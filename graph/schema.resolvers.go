@@ -17,9 +17,9 @@ func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) 
 	rand.Seed(time.Now().UnixNano())
 
 	todo := &model.Todo{
-		Text: input.Text,
-		ID:   fmt.Sprintf("T%d", rand.Intn(100)),
-		User: &model.User{ID: input.UserID, Name: "user " + input.UserID},
+		Text:   input.Text,
+		ID:     fmt.Sprintf("T%d", rand.Intn(100)),
+		UserID: input.UserID,
 	}
 	r.todos = append(r.todos, todo)
 	return todo, nil
